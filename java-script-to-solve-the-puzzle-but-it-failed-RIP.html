@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <p id="start"></p>
+<p id="demo"></p>
+
+<script>
+    var str = "AJCJC LZPD LDYFDZIIPQF ZEWPBYD ICCUPQFB ICBBZFC PQBUDJKUYD YD ICQUYD";
+    var ascii=0;
+    var incascii=0;
+    var newletter="";
+    var i;
+    var str2= "";
+    var j;
+    
+    document.getElementById("start").innerHTML = str;
+
+for(j=0; j<25; j++){
+    for(i=0; i<str.length; i++){
+
+        ascii = str.charCodeAt(i); //get ascii value at position i in the string
+        incascii = ascii+=1 //add one to that ascii value
+
+        if(incascii==91) //If The ascii value is Z+1...
+        { 
+            newletter = "" + String.fromCharCode(65); //set to A
+            str2+=newletter; // add letter to the new string
+        }
+
+        else if(incascii<41) //If The ascii value is space...
+        { 
+            str2+=" "; // add space
+        }
+
+        else 
+        {
+            newletter = "" + String.fromCharCode(incascii); //convert ascii to a letter
+            str2+=newletter; // add letter to the new string
+        }
+    }
+    document.getElementById("demo").innerHTML += str2 + ", <br><br>";
+    str=str2;
+    str2="";
+}
+//Thought I would solve the puzzle by making code that would keep increasing every letter by 1 position forward in the alphabet... but that wasnt it lol
+
+
+</script>
+
+</body>
+</html>
